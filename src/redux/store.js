@@ -1,31 +1,24 @@
 import { configureStore } from "@reduxjs/toolkit";
-// import { authSlice } from "./auth/authSlice";
-// import { tasksSlice } from "./tasks/tasksSlice";
-// import { themeSlice } from "./theme/themeSlice";
-//import storage from 'redux-persist/lib/storage';
-// import { persistStore, persistReducer, FLUSH, REHYDRATE,
-//   PAUSE, PERSIST, PURGE, REGISTER,
-// } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
 import { charactersSlice } from "./charactersSlice";
 
-  
-// const persistConfig = {
-//   key: 'auth',
-//   storage,
-//   whitelist: ['token', 'isLogged', 'name', 'userId', 'avatar'],
-// };
+const persistConfig = {
+  key: 'characters',
+  storage,
+  whitelist: ['filter'],
+};
 
 export const store = configureStore({
   reducer: {
-    //auth: persistReducer(persistConfig, authSlice.reducer),
-    characters: charactersSlice.reducer,
+    characters: persistReducer(persistConfig,  charactersSlice.reducer),
     //theme: themeSlice.reducer
   },
-  // middleware: getDefaultMiddleware => getDefaultMiddleware({
-  //   serializableCheck: {
-  //       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-  //   },
-  // }),
+  middleware: getDefaultMiddleware => getDefaultMiddleware({
+    serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+    },
+  }),
 });
 
-//export const persistor = persistStore(store);
+export const persistor = persistStore(store);
