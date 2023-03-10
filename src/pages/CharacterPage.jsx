@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getSingleCharacterAsync } from "api/axios";
+import { NavLink } from "react-router-dom";
 
 export const CharacterPage = () => {
   const [item, setItem] = useState(null);
@@ -20,9 +21,10 @@ export const CharacterPage = () => {
 
   return (
     <div>
+      <NavLink to='/'>go back</NavLink>
       {item
         ? <div>
-            <img src={item.image} alt={item.name} />
+            <img src={item.image} alt={item.name} width="100px" />
             <p>{item.name}</p>
             <p>Informations</p>
             <p>Gender: {item.gender}</p>

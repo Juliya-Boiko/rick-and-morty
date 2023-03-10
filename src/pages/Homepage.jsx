@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { getAllCharactersAsync } from "api/axios";
+import { Logo } from "components/Logo/Logo";
 import { Filter } from "components/Filter/Filter";
 import { CardsList } from "components/CardsList/CardsList";
 
@@ -26,10 +27,11 @@ export const HomePage = () => {
   }, []);
 
   return (
-    <div>
+    <>
+      <Logo width="200px" />
       <Filter value={filter} onChange={filterHandler} />
       {items.length > 0 ? <CardsList items={filteredItems(items)}/> : <p>Empty List</p>}
-    </div>
+    </>
   )
 };
 
