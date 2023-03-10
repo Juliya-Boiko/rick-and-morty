@@ -3,14 +3,17 @@ import { getAllCharactersAsync } from "api/axios";
 import { Logo } from "components/Logo/Logo";
 import { Filter } from "components/Filter/Filter";
 import { CardsList } from "components/CardsList/CardsList";
+import { Loader } from "components/Loader/Loader";
 
-export const HomePage = () => {
+const HomePage = () => {
   const [filter, setFilter] = useState('');
   const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const getAll = async () => {
     const { data } = await getAllCharactersAsync();
     setItems(data.results);
+    setLoading(false);
   };
 
   const filterHandler = (e) => {
@@ -30,9 +33,10 @@ export const HomePage = () => {
     <div className="homepage">
       <Logo width="200px" />
       <Filter value={filter} onChange={filterHandler} />
-      {items.length > 0 ? <CardsList items={filteredItems(items)}/> : <p>Empty List</p>}
+      { loading ? <Loader /> : null }
+      { items.length > 0 ? <CardsList items={filteredItems(items)}/> : null }
     </div>
   )
 };
 
-
+export default HomePage;

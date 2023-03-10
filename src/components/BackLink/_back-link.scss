@@ -8,12 +8,23 @@
   text-decoration: none;
   text-transform: uppercase;
   @include text(700, 18px, 1.2, 0, 1);
-
-  &__text {
-    margin: 0 0 0 8px;
+  transition: all $transition-prop;
+  &:hover {
+    transform: scale(1.05);
+    svg {
+      transform: scale(1.5);
+    }
   }
   @media screen and (min-width: $desktop) {
     top: 21px;
     left: 50px;
+  }
+
+  &__text {
+    margin: 0 0 0 8px;
+  }
+
+  svg {
+    transition: all $transition-prop;
   }
 }

@@ -1,6 +1,7 @@
 .info-detail {
   position: relative;
   padding: 10px 16px;
+  width: 100%;
   @media screen and (min-width: $desktop) {
     width: 413px;
     margin: 0 auto;

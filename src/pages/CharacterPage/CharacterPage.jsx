@@ -3,16 +3,17 @@ import { useEffect, useState } from "react";
 import { getSingleCharacterAsync } from "api/axios";
 import { BackLink } from "components/BackLink/BackLink";
 import { InfoDetail } from "components/InfoDetail/InfoDetail";
+import { Loader } from "components/Loader/Loader";
 
-export const CharacterPage = () => {
+const CharacterPage = () => {
   const [item, setItem] = useState(null);
+  const [loading, setLoading] = useState(true);
   const { id } = useParams();
-
-  // console.log(item);
 
   const getOne = async (id) => {
     const { data } = await getSingleCharacterAsync(id);
     setItem(data);
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -22,6 +23,7 @@ export const CharacterPage = () => {
   return (
     <div className="character-page">
       <BackLink />
+      { loading ? <Loader /> : null }
       {item
         ? <>
             <img src={item.image} alt={item.name} width="100px" className="character-page__image" />
@@ -33,7 +35,9 @@ export const CharacterPage = () => {
             <InfoDetail title="Origin" value={item.origin.name} />
             <InfoDetail title="Type" value={item.type === '' ? 'Unknown' : item.type} />
           </>
-        : <p>no data getted</p>}
+        : null}
     </div>
   )
 };
+
+export default CharacterPage;

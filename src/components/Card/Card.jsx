@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 
 export const Card = ({ item }) => {
-  console.log(item);
+  //console.log(item);
 
   return (
     <li className="card">

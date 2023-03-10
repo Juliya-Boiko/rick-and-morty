@@ -4,11 +4,4 @@
   line-height: $lh;
   letter-spacing: $ls;
   color: rgba(0, 0, 0, $color-shade);
-}
-
-// @mixin flex-position($position) {
-//   display: flex;
-//   flex-direction: $position;
-//   align-items: center;
-//   //justify-content: center;
-// }
+};
