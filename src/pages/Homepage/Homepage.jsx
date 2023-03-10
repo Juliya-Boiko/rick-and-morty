@@ -6,6 +6,7 @@ import { CardsList } from "components/CardsList/CardsList";
 import { Loader } from "components/Loader/Loader";
 
 const HomePage = () => {
+  const [page, setPage] = useState(1);
   const [filter, setFilter] = useState('');
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -16,16 +17,21 @@ const HomePage = () => {
   };
 
   useEffect(() => {
-    getAllCharactersAsync().then(response => setItems(response.data.results));
+    getAllCharactersAsync(page).then(response => setItems(response.data.results));
     setLoading(false);
-  }, []);
+  }, [page]);
+
+  useEffect(() => {
+    console.log(page);
+  }, [page]);
 
   return (
     <div className="homepage">
       <Logo width="200px" />
       <Filter value={filter} onChange={(e)=> setFilter(e.target.value)} />
       { loading ? <Loader /> : null }
-      { items.length > 0 ? <CardsList items={filteredItems(items)}/> : null }
+      {items.length > 0 ? <CardsList items={filteredItems(items)} /> : null}
+      <button onClick={() => setPage(prevState => prevState + 1)} >Load more</button>
     </div>
   )
 };
