@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkrick_and_morty=self.webpackChunkrick_and_morty||[]).push([[800],{800:function(r,a,e){e.r(a);var n=e(689),s=e(184);a.default=function(){return(0,s.jsx)("div",{className:"shared-layout",children:(0,s.jsx)(n.j3,{})})}}}]);
-//# sourceMappingURL=800.29b93eb4.chunk.js.map
