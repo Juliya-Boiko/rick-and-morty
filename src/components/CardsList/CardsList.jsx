@@ -1,6 +1,7 @@
 import { Card } from "components/Card/Card";
 
 export const CardsList = ({ items }) => {
+  //console.log(items);
 
   return (
     <ul>

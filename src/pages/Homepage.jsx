@@ -1,24 +1,36 @@
+import { useState, useEffect } from "react";
+import { getAllCharactersAsync } from "api/axios";
+import { Filter } from "components/Filter/Filter";
+import { CardsList } from "components/CardsList/CardsList";
+
 export const HomePage = () => {
+  const [filter, setFilter] = useState('');
+  const [items, setItems] = useState([]);
+
+  const getAll = async () => {
+    const { data } = await getAllCharactersAsync();
+    setItems(data.results);
+  };
+
+  const filterHandler = (e) => {
+    setFilter(e.target.value);
+  };
+
+  const filteredItems = () => {
+    const data = items.filter(item => item.name.toLowerCase().includes(filter));
+    return data;
+  }
+
+  useEffect(() => {
+    getAll();
+  }, []);
 
   return (
     <div>
-      Homepage
+      <Filter value={filter} onChange={filterHandler} />
+      {items.length > 0 ? <CardsList items={filteredItems(items)}/> : <p>Empty List</p>}
     </div>
   )
 };
 
-  // const [items, setItems] = useState([]);
 
-  // const getAll = async () => {
-  //   const { data } = await getAllCharactersAsync();
-  //   setItems(data.results);
-  // };
-
-  // useEffect(() => {
-  //   getAll();
-  // }, []);
-  
-  // const getOne = async () => {
-  //   const data = await getSingleCharacterAsync(2);
-  //   console.log(data);
-  // };
