@@ -5,11 +5,20 @@ const BASE_URL = 'https://rickandmortyapi.com/api';
 axios.defaults.baseURL = BASE_URL;
 
 export const getAllCharactersAsync = async () => {
-  const data = axios.get(`/character`);
-  return data;
+  try {
+    const data = axios.get(`/character`);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+
 };
 
 export const getSingleCharacterAsync = async (id) => {
-  const data = axios.get(`/character/${id}`);
-  return data;
+  try {
+    const data = axios.get(`/character/${id}`);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
 };

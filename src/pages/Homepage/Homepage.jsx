@@ -10,29 +10,20 @@ const HomePage = () => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const getAll = async () => {
-    const { data } = await getAllCharactersAsync();
-    setItems(data.results);
-    setLoading(false);
-  };
-
-  const filterHandler = (e) => {
-    setFilter(e.target.value);
-  };
-
   const filteredItems = () => {
     const data = items.filter(item => item.name.toLowerCase().includes(filter));
     return data;
-  }
+  };
 
   useEffect(() => {
-    getAll();
+    getAllCharactersAsync().then(response => setItems(response.data.results));
+    setLoading(false);
   }, []);
 
   return (
     <div className="homepage">
       <Logo width="200px" />
-      <Filter value={filter} onChange={filterHandler} />
+      <Filter value={filter} onChange={(e)=> setFilter(e.target.value)} />
       { loading ? <Loader /> : null }
       { items.length > 0 ? <CardsList items={filteredItems(items)}/> : null }
     </div>

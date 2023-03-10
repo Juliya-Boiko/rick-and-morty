@@ -10,14 +10,9 @@ const CharacterPage = () => {
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
 
-  const getOne = async (id) => {
-    const { data } = await getSingleCharacterAsync(id);
-    setItem(data);
-    setLoading(false);
-  };
-
   useEffect(() => {
-    getOne(id);
+    getSingleCharacterAsync(id).then(response => setItem(response.data));
+    setLoading(false);
   }, [id]);
 
   return (
