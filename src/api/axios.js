@@ -8,6 +8,7 @@ export const getAllCharactersAsync = async (page) => {
   try {
     //const data = await axios.get(`/character`);
     const data = await axios.get(`/character/?page=${page}`);
+    //console.log(data);
     return data;
   } catch (error) {
     console.log(error);

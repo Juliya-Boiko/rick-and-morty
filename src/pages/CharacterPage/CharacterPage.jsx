@@ -18,8 +18,7 @@ const CharacterPage = () => {
   return (
     <div className="character-page">
       <BackLink />
-      { loading ? <Loader /> : null }
-      {item
+      { item && !loading
         ? <>
             <img src={item.image} alt={item.name} width="100px" className="character-page__image" />
             <h1 className="character-page__title">{item.name}</h1>
@@ -30,7 +29,7 @@ const CharacterPage = () => {
             <InfoDetail title="Origin" value={item.origin.name} />
             <InfoDetail title="Type" value={item.type === '' ? 'Unknown' : item.type} />
           </>
-        : null}
+        : <Loader />}
     </div>
   )
 };
