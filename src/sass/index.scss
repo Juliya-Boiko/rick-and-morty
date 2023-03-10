@@ -3,6 +3,9 @@
 @import './base/reset';
 @import './utils/mixins';
 @import './base/common';
-@import '../layouts/shared-layout.scss';
-@import '../components/Logo/logo.scss';
-@import '../components/Filter/filter.scss';
+@import '../layouts/shared-layout';
+@import '../pages/Homepage/homepage';
+@import '../components/Logo/logo';
+@import '../components/Filter/filter';
+@import '../components/CardsList/cards-list';
+@import '../components/Card/card';

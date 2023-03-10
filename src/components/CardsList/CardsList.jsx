@@ -4,7 +4,7 @@ export const CardsList = ({ items }) => {
   //console.log(items);
 
   return (
-    <ul>
+    <ul className="cards-list">
       {items.map(item => {
         return <Card key={item.id} item={item} />
       })}

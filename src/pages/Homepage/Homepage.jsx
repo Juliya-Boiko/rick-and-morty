@@ -27,11 +27,11 @@ export const HomePage = () => {
   }, []);
 
   return (
-    <>
+    <div className="homepage">
       <Logo width="200px" />
       <Filter value={filter} onChange={filterHandler} />
       {items.length > 0 ? <CardsList items={filteredItems(items)}/> : <p>Empty List</p>}
-    </>
+    </div>
   )
 };
 

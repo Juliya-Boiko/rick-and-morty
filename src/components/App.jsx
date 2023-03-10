@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { SharedLayout } from "layouts/SharedLayout";
-import { HomePage } from "pages/Homepage";
+import { HomePage } from "pages/Homepage/Homepage";
 import { CharacterPage } from "pages/CharacterPage";
 
 export const App = () => {

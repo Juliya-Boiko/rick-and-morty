@@ -1,12 +1,8 @@
 .shared-layout {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   width: 100%;
   min-height: 100vh;
   margin: 0 auto;
   padding: 0 24px;
-  //background-color: rosybrown;
   @media screen and (min-width: $mobile) {
     width: $mobile;
   }
