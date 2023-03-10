@@ -1,0 +1,19 @@
+.back-link {
+  position: absolute;
+  top: 23px;
+  left: 0;
+  display: flex;
+  align-items: center;
+  font-family: 'Karla', sans-serif;
+  text-decoration: none;
+  text-transform: uppercase;
+  @include text(700, 18px, 1.2, 0, 1);
+
+  &__text {
+    margin: 0 0 0 8px;
+  }
+  @media screen and (min-width: $desktop) {
+    top: 21px;
+    left: 50px;
+  }
+}

@@ -1,0 +1,31 @@
+.info-detail {
+  position: relative;
+  padding: 10px 16px;
+  @media screen and (min-width: $desktop) {
+    width: 413px;
+    margin: 0 auto;
+  }
+
+  ::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 16px;
+    display: block;
+    width: calc(100% - 16px);
+    height: 1px;
+    background-color: rgba(33, 33, 33, 0.08);
+  }
+
+  &__title {
+    @include text(700, 16px, 1.5, 0.15, 1);
+  }
+
+  &__value {
+    &::first-letter {
+      text-transform: capitalize;
+    }
+    @include text(400, 14px, 1.5, 0.25, 1);
+    color: $gray-2;
+  }
+}
