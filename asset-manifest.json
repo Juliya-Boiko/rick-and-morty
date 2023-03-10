@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/rick-and-morty/static/css/main.5744f885.css",
-    "main.js": "/rick-and-morty/static/js/main.7c19818d.js",
+    "main.js": "/rick-and-morty/static/js/main.68d0a870.js",
     "index.html": "/rick-and-morty/index.html",
     "main.5744f885.css.map": "/rick-and-morty/static/css/main.5744f885.css.map",
-    "main.7c19818d.js.map": "/rick-and-morty/static/js/main.7c19818d.js.map"
+    "main.68d0a870.js.map": "/rick-and-morty/static/js/main.68d0a870.js.map"
   },
   "entrypoints": [
     "static/css/main.5744f885.css",
-    "static/js/main.7c19818d.js"
+    "static/js/main.68d0a870.js"
   ]
 }
