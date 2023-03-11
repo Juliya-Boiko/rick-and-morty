@@ -1,34 +1,35 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { filter } from "redux/characters/charactersSlice";
 import { getCharacters } from "redux/characters/charactersOperations";
 import { Logo } from "components/Logo/Logo";
 import { Filter } from "components/Filter/Filter";
 import { CardsList } from "components/CardsList/CardsList";
 import { Loader } from "components/Loader/Loader";
 import { UserBar } from "components/UserBar/UserBar";
+import { Pagination } from "components/Pagination/Pagination";
 
 const HomePage = () => {
   const dispatch = useDispatch();
-  const [currentPage] = useState(1);
-  const [loading, setLoading] = useState(true);
-  const value = useSelector(state => state.characters.filter);
-  const characters = useSelector(state => state.characters.items);
+  const [loading, setLoading] = useState(false);
+  const { page, filter, items, total} = useSelector(state => state.characters);
 
   useEffect(() => {
-    dispatch(getCharacters(value, currentPage));
+    setLoading(true);
+    const searchQuery = { filter, page };
+    dispatch(getCharacters(searchQuery));
     setLoading(false);
-  }, [value, currentPage, dispatch]);
+  }, [filter, page, dispatch]);
 
   return (
     <div className="homepage">
       <UserBar />
       <Logo width="200px" />
-      <Filter value={value} onChange={(e) => dispatch(filter(e.target.value))} />
+      <Filter />
       {loading ? <Loader /> : null}
-      {characters ? <CardsList items={characters} /> : null}
+      {items ? <CardsList items={items} /> : null}
+      {total > 1 ? <Pagination page={page} total={total} /> : null}
     </div>
-  )
+  );
 };
 
 export default HomePage;

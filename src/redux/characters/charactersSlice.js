@@ -4,7 +4,8 @@ import { getCharacters } from "./charactersOperations";
 const initialState = {
   filter: '',
   items: [],
-  total: 0
+  total: 0, 
+  page: 1
 };
 
 export const charactersSlice = createSlice({
@@ -19,9 +20,15 @@ export const charactersSlice = createSlice({
   },
   reducers: {
     filter: (state, { payload }) => {
-      return { ...state, filter: payload.toLowerCase() };
+      return { ...state, filter: payload.toLowerCase(), page: 1 };
+    },
+    nextPage: (state) => {
+      return { ...state, page: state.page + 1 }
+    },
+    prevPage: (state) => {
+      return { ...state, page: state.page - 1 }
     },
   }
 })
 
-export const { filter } = charactersSlice.actions;
+export const { filter, nextPage, prevPage } = charactersSlice.actions;
