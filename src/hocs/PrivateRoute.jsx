@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router";
 
@@ -9,4 +10,8 @@ export const PrivateRoute = ({ children }) => {
       ? <Navigate to="/auth" />
       : children
   );
+};
+
+PrivateRoute.propTypes = {
+  children: PropTypes.object.isRequired,
 };

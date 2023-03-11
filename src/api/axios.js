@@ -5,7 +5,6 @@ const BASE_URL = 'https://rickandmortyapi.com/api';
 axios.defaults.baseURL = BASE_URL;
 
 export const getCharactersAsync = async (searchQuery) => {
-  console.log('getCharactersAsync incoming searchQuery--->', searchQuery);
   const { filter, page } = searchQuery;
   const data = await axios.get(`/character/?name=${filter}&page=${page}`);
   return data;

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useDispatch } from "react-redux";
 import { nextPage, prevPage } from "redux/characters/charactersSlice";
 import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
@@ -16,4 +17,9 @@ export const Pagination = ({ page, total }) => {
       </button>
     </div>
   );
+};
+
+Pagination.propTypes = {
+  page: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
 };

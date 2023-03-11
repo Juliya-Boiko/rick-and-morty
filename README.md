@@ -10,3 +10,4 @@
 - current user & search value saving after refreshing page;
 - loader while request pending;
 - styled by sass;
+- props checking by PropTypes
