@@ -8,9 +8,10 @@ import { Loader } from "components/Loader/Loader";
 const CharacterPage = () => {
   const { id } = useParams();
   const [item, setItem] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     getSingleCharacterAsync(id).then(response => setItem(response.data));
     setLoading(false);
   }, [id]);

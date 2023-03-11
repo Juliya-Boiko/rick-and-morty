@@ -23,7 +23,7 @@ const HomePage = () => {
   return (
     <div className="homepage">
       <UserBar />
-      <Logo width="200px" />
+      <Logo />
       <Filter />
       {loading ? <Loader /> : null}
       {items ? <CardsList items={items} /> : null}

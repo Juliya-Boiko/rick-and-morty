@@ -2,8 +2,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "redux/auth/authSlice";
 
 export const UserBar = () => {
-  const name = useSelector(state => state.auth.displayName);
   const dispatch = useDispatch();
+  const name = useSelector(state => state.auth.displayName);
 
   return (
     <div className="user-bar">
