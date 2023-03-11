@@ -6,9 +6,9 @@ import { InfoDetail } from "components/InfoDetail/InfoDetail";
 import { Loader } from "components/Loader/Loader";
 
 const CharacterPage = () => {
+  const { id } = useParams();
   const [item, setItem] = useState(null);
   const [loading, setLoading] = useState(true);
-  const { id } = useParams();
 
   useEffect(() => {
     getSingleCharacterAsync(id).then(response => setItem(response.data));

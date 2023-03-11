@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getAllCharacters } from "./charactersOperations";
+import { getCharacters } from "./charactersOperations";
 
 const initialState = {
   filter: '',
   items: [],
+  total: 0
 };
 
 export const charactersSlice = createSlice({
@@ -11,9 +12,10 @@ export const charactersSlice = createSlice({
   initialState,
   extraReducers: (builder) => {
     builder
-      .addCase(getAllCharacters.fulfilled, (state, { payload }) => {
-        state.items = [...payload];
-      })
+      .addCase(getCharacters.fulfilled, (state, { payload }) => {
+        state.items = [...payload.results];
+        state.total = payload.info.pages;
+    })
   },
   reducers: {
     filter: (state, { payload }) => {

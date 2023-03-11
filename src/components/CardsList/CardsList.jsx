@@ -1,13 +1,14 @@
 import { Card } from "components/Card/Card";
+import { sortedByName } from "helpers/sortedByName";
 
 export const CardsList = ({ items }) => {
-  const sortedByName = items.sort((a, b) => a.name > b.name ? 1 : -1);
+  const sortedItems = sortedByName(items);
 
   return (
     <>
       {items.length === 0 && <p>No such character</p>}
       <ul className="cards-list">
-        {sortedByName.map(item => {
+        {sortedItems.map(item => {
           return <Card key={item.id} item={item} />
         })}
       </ul>
