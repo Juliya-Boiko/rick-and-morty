@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { filter } from "redux/charactersSlice";
-import { getCharacters } from "redux/charactersOperations";
+import { filter } from "redux/characters/charactersSlice";
+import { getCharacters } from "redux/characters/charactersOperations";
 import { Logo } from "components/Logo/Logo";
 import { Filter } from "components/Filter/Filter";
 import { CardsList } from "components/CardsList/CardsList";
 import { Loader } from "components/Loader/Loader";
+import { UserBar } from "components/UserBar/UserBar";
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ const HomePage = () => {
 
   return (
     <div className="homepage">
+      <UserBar />
       <Logo width="200px" />
       <Filter value={value} onChange={(e) => dispatch(filter(e.target.value))} />
       {loading ? <Loader /> : null}

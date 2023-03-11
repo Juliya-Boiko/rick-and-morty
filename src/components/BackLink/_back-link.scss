@@ -9,15 +9,15 @@
   text-transform: uppercase;
   @include text(700, 18px, 1.2, 0, 1);
   transition: all $transition-prop;
+  @media screen and (min-width: $desktop) {
+    top: 21px;
+    left: 50px;
+  }
   &:hover {
     transform: scale(1.05);
     svg {
       transform: scale(1.5);
     }
-  }
-  @media screen and (min-width: $desktop) {
-    top: 21px;
-    left: 50px;
   }
 
   &__text {
