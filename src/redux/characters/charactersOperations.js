@@ -1,4 +1,4 @@
-
+import { toast } from 'react-toastify';
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { getCharactersAsync } from "api/axios";
 
@@ -9,8 +9,7 @@ export const getCharacters = createAsyncThunk(
       const { data } = await getCharactersAsync(name, page);
       return data;
     } catch (error) {
-      console.log(error);
-      //Notify.failure(`${error.response.data.message}`);
+      toast.warn(`No such character. Enter correct name`);
     }
   }
 );

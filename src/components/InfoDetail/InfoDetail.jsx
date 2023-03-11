@@ -1,4 +1,3 @@
-
 export const InfoDetail = ({ title, value }) => {
   return (
     <div className="info-detail">

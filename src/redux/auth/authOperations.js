@@ -1,7 +1,7 @@
+import { toast } from 'react-toastify';
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { authentication, provider } from "utils/firebaseConfig";
-
 
 export const authUser = createAsyncThunk(
   'auth',
@@ -9,15 +9,13 @@ export const authUser = createAsyncThunk(
     try {
     const values = signInWithPopup(authentication, provider)
         .then((result) => {
-          const credential = GoogleAuthProvider.credentialFromResult(result);
-          const token = credential.accessToken;
+          GoogleAuthProvider.credentialFromResult(result);
           const user = result.user;
           const data = {
             displayName: user.displayName,
             uid: user.uid,
             accessToken: user.accessToken
           }
-          //console.log(user);
           return data;
         })
         .catch((error) => {
@@ -26,7 +24,7 @@ export const authUser = createAsyncThunk(
         });
       return values;
     } catch (error) {
-     // Notify.failure(`${error.response.data.message}`);
+      toast.warn(`${error}`);
     }
   }
 );
