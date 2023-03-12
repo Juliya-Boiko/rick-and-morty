@@ -7,6 +7,7 @@ import { CardsList } from "components/CardsList/CardsList";
 import { Loader } from "components/Loader/Loader";
 import { UserBar } from "components/UserBar/UserBar";
 import { Pagination } from "components/Pagination/Pagination";
+import { ScrollTop } from "components/ScrollTop/ScrollTop";
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -28,6 +29,7 @@ const HomePage = () => {
       {loading ? <Loader /> : null}
       {items ? <CardsList items={items} /> : null}
       {total > 1 ? <Pagination page={page} total={total} /> : null}
+      <ScrollTop />
     </div>
   );
 };
