@@ -19,7 +19,11 @@ export const AuthForm = () => {
 
   return (
     <>
-      <button type="button" onClick={() => setToggleForm(prevState => !prevState)} className="auth-form__toggle-btn">
+      <button
+        type="button"
+        onClick={() => setToggleForm(prevState => !prevState)}
+        className="auth-form__toggle-btn"
+      >
         {toggleForm ? 'You have account?' : 'Dont have account?'}
         <span>{toggleForm ? 'Login' : 'Create'}</span>
       </button>
@@ -50,9 +54,20 @@ export const AuthForm = () => {
         )}
       </Formik>
 
-      <button type="button" onClick={() => dispatch(authUser())} className="auth-page__btn">
-        <span>Continue with</span>
-        <FcGoogle size="40" />
+      <div className="auth-form__delimeter">
+        <div className="auth-form__delimeter-line"></div>
+        <p>or</p>
+        <div className="auth-form__delimeter-line auth-form__delimeter-line--reversed"></div>
+      </div>
+
+      <button
+        type="button"
+        onClick={() => dispatch(authUser())}
+        className="auth-form__google-btn"
+      >
+        Continue with 
+        <FcGoogle size="20" />
+        oogle
       </button>
     </>
   );
