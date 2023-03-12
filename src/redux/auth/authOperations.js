@@ -1,30 +1,69 @@
 import { toast } from 'react-toastify';
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { authentication, provider } from "utils/firebaseConfig";
 
 export const authUser = createAsyncThunk(
-  'auth',
+  'auth/google',
   async () => {
-    try {
     const values = signInWithPopup(authentication, provider)
-        .then((result) => {
-          GoogleAuthProvider.credentialFromResult(result);
-          const user = result.user;
-          const data = {
-            displayName: user.displayName,
-            uid: user.uid,
-            accessToken: user.accessToken
-          }
-          return data;
-        })
-        .catch((error) => {
-          const errorMessage = error.message;
-          console.log('errorMessage--->', errorMessage);
-        });
-      return values;
-    } catch (error) {
-      toast.warn(`${error}`);
-    }
+      .then((result) => {
+        GoogleAuthProvider.credentialFromResult(result);
+        const user = result.user;
+        const data = {
+          uid: user.uid,
+          accessToken: user.accessToken
+        }
+        toast.success(`${user.email} authorized`);
+        return data;
+      })
+      .catch((error) => {
+        toast.error(`${error.message}`);
+      });
+    return values;
+  }
+);
+
+export const registerUser = createAsyncThunk(
+  'auth/register',
+  async (data) => {
+    const { email, password } = data;
+    const values = createUserWithEmailAndPassword(authentication, email, password)
+      .then((result) => {
+        const user = result.user;
+        //console.log('registerUser return-->', user);
+        const data = {
+          uid: user.uid,
+          accessToken: user.accessToken
+        }
+        toast.success(`${user.email} register successful`);
+        return data;
+      })
+      .catch((error) => {
+        toast.error(`${error.message}`);
+      });
+    return values;
+  }
+);
+
+export const loginUser = createAsyncThunk(
+  'auth/login',
+  async (data) => {
+    const { email, password } = data;
+    const values = signInWithEmailAndPassword(authentication, email, password)
+      .then((result) => {
+        const user = result.user;
+        //console.log('loginUser return-->', user);
+        const data = {
+          uid: user.uid,
+          accessToken: user.accessToken
+        }
+        toast.success(`${user.email} authorized`);
+        return data;
+      })
+    .catch((error) => {
+      toast.error(`${error.message}`);
+    });
+    return values;
   }
 );

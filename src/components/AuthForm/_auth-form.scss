@@ -1,0 +1,51 @@
+.auth-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 32px 0;
+
+  &__input {
+    width: 100%;
+    margin: 0 0 32px 0;
+    padding: 10px;
+    @include text(400, 14px, 1.5, 0.25, 1);
+    color: $gray-2;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid $gray-2;
+    background: transparent;
+  }
+
+  &__submit-btn {
+    padding: 10px 0;
+    @include text(700, 14px, 1.5, 0.25, 1);
+    border: none;
+    border-radius: 2px;
+    outline: 2px solid $accent-blue;
+    transition: all $transition-prop;
+    color: $secondary;
+    background-color: $accent-blue;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.04);
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2), 0px 3px 4px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.14);
+    }
+  }
+}
+
+.auth-form__toggle-btn {
+  margin: 0 auto 32px 0;
+  @include text(400, 14px, 1.5, 0.25, 1);
+  color: $gray-2;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+
+  span {
+    margin: 0 0 0 4px;
+    @include text(700, 14px, 1.5, 0.25, 1);
+    color: $accent-blue;
+  }
+}
+
