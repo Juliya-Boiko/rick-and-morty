@@ -12,7 +12,7 @@ import { ScrollTop } from "components/ScrollTop/ScrollTop";
 const HomePage = () => {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
-  const { page, filter, items, total} = useSelector(state => state.characters);
+  const { page, filter } = useSelector(state => state.characters);
 
   useEffect(() => {
     setLoading(true);
@@ -23,12 +23,12 @@ const HomePage = () => {
 
   return (
     <div className="homepage">
+      {loading ? <Loader /> : null}
       <UserBar />
       <Logo />
       <Filter />
-      {loading ? <Loader /> : null}
-      {items ? <CardsList items={items} /> : null}
-      {total > 1 ? <Pagination page={page} total={total} /> : null}
+      <CardsList />
+      <Pagination />
       <ScrollTop />
     </div>
   );

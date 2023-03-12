@@ -1,0 +1,36 @@
+.character-info__image {
+  display: block;
+  width: 150px;
+  margin: 0 auto 34px auto;
+  border-radius: 50%;
+  border: 5px solid $gray-3;
+
+  @media screen and (min-width: $desktop) {
+    width: 300px;
+    margin: 0 auto 16px auto;
+  }
+}
+
+  .character-info__title {
+  margin: 0 0 34px 0;
+  text-align: center;
+  @include text(400, 32px, 1.2, 0, 1);
+
+  @media screen and (min-width: $desktop) {
+    margin: 0 0 48px 0;
+    @include text(400, 48px, 1.2, 0, 1);
+  }
+}
+
+.character-info__text {
+  margin: 0 0 16px 0;
+  @include text(500, 20px, 1.2, 0.15, 1);
+  color: $gray-1;
+
+  @media screen and (min-width: $desktop) {
+    text-align: center;
+    margin: 0 0 48px 0;
+    @include text(500, 20px, 1.2, 0.15, 1);
+    color: $gray-1;
+  }
+}
