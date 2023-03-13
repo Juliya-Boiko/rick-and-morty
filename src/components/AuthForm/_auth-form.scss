@@ -7,9 +7,13 @@
     max-width: 400px;
   }
 
+  &__wrapper {
+   margin: 0 0 32px 0;
+   position: relative;
+  }
+
   &__input {
     width: 100%;
-    margin: 0 0 32px 0;
     padding: 10px;
     @include text(400, 14px, 1.5, 0.25, 1);
     color: $gray-2;
@@ -19,16 +23,22 @@
     background: transparent;
   }
 
+  &__password-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0;
+    transform: translateY(50%);
+    @extend %button-base;
+    @include styled-btn($gray-2, transparent, 0px);
+  }
+
   &__submit-btn {
     padding: 10px 0;
     @include text(700, 14px, 1.5, 0.25, 1);
-    border: none;
-    border-radius: 2px;
+    @extend %button-base;
+    @include styled-btn($secondary, $accent-blue, 2px);
     outline: 2px solid $accent-blue;
-    transition: all $transition-prop;
-    color: $secondary;
-    background-color: $accent-blue;
-    cursor: pointer;
     &:hover {
       transform: scale(1.04);
       box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2), 0px 3px 4px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.14);
@@ -39,11 +49,8 @@
 .auth-form__toggle-btn {
   margin: 0 0 32px 0;
   @include text(400, 14px, 1.5, 0.25, 1);
-  color: $gray-2;
-  border: none;
-  outline: none;
-  background-color: transparent;
-  cursor: pointer;
+  @extend %button-base;
+  @include styled-btn($gray-2, transparent, 0px);
 
   span {
     margin: 0 0 0 4px;
@@ -81,13 +88,9 @@
   align-items: center;
   justify-content: center;
   @include text(700, 14px, 1.5, 0.25, 1);
-  border: none;
+  @extend %button-base;
+  @include styled-btn($gray-2, transparent, 2px);
   outline: 1px solid $accent-blue;
-  border-radius: 2px;
-  color: $gray-2;
-  background-color: transparent;
-  transition: all $transition-prop;
-  cursor: pointer;
   &:hover {
     transform: scale(1.04);
   }

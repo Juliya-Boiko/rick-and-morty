@@ -10,12 +10,8 @@
 
   &__button {
     padding: 0;
-    border: none;
-    outline: none;
-    color: $gray-2;
-    background-color: transparent;
-    transition: all $transition-prop;
-    cursor: pointer;
+    @extend %button-base;
+    @include styled-btn($gray-2, transparent, 0px);
     &:disabled {
       color: $gray-3;
     }

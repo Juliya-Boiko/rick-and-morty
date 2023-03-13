@@ -7,13 +7,9 @@
   align-items: center;
   justify-content: center;
   padding: 10px;
-  border: none;
-  border-radius: 50%;
+  @extend %button-base;
+  @include styled-btn($gray-1, $secondary, 50%);
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2), 0px 3px 4px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.14);
-  background-color: $secondary;
-  color: $gray-1;
-  transition: all $transition-prop;
-  cursor: pointer;
   &:hover {
     background-color: $accent-blue;
     color: $secondary;

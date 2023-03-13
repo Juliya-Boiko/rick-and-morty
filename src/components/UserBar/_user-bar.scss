@@ -3,12 +3,8 @@
   top: 20px;
   right: 20px;
   padding: 3px;
-  border: none;
-  outline: none;
-  color: $gray-2;
-  background-color: transparent;
-  transition: all $transition-prop;
-  cursor: pointer;
+  @extend %button-base;
+  @include styled-btn($gray-2, transparent, 0px);
   &:hover {
     transform: rotate(15deg);
     color: $accent-blue;
@@ -39,14 +35,8 @@
   &-btn {
     padding: 0;
     @include text(400, 16px, 1, 0, 1);
-    border: none;
-    outline: none;
-    background-color: transparent;
-    transition: all $transition-prop;
-    color: $gray-2;
-  
-    cursor: pointer;
-  
+    @extend %button-base;
+    @include styled-btn($gray-2, transparent, 0px);
     &:hover {
       transform: scale(1.02);
       color: $accent-blue;

@@ -5,3 +5,9 @@
   letter-spacing: $ls;
   color: rgba(0, 0, 0, $color-shade);
 };
+
+@mixin styled-btn($color, $bg-color, $border-radius) {
+  border-radius: $border-radius;
+  color: $color;
+  background-color: $bg-color;
+}

@@ -3,7 +3,6 @@ import { logoutUser } from "redux/auth/authSlice";
 import { TfiSettings } from "react-icons/tfi";
 import { useState } from "react";
 
-
 export const UserBar = () => {
   const dispatch = useDispatch();
   const [showBar, setShowBar] = useState(false);
