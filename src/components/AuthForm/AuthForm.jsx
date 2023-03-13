@@ -49,7 +49,12 @@ export const AuthForm = () => {
               onChange={handleChange}
               placeholder="Password"
               className="auth-form__input" />
-            <button type="submit" className="auth-form__submit-btn">{toggleForm ? 'Create account' : 'Login'}</button>
+            <button
+              type="submit"
+              className="auth-form__submit-btn"
+            >
+              {toggleForm ? 'Create account' : 'Login'}
+            </button>
           </Form>
         )}
       </Formik>

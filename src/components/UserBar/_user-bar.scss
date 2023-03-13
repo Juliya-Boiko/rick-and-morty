@@ -1,21 +1,55 @@
-.user-bar {
-  margin: 0 0 0 auto;
-  text-align: end;
-  @include text(400, 10px, 1.5, 0.25, 1);
+.user-bar__toggle-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 3px;
+  border: none;
+  outline: none;
   color: $gray-2;
+  background-color: transparent;
+  transition: all $transition-prop;
+  cursor: pointer;
+  &:hover {
+    transform: rotate(15deg);
+    color: $accent-blue;
+  }
 
-  &__btn {
-    padding: 4px 6px;
-    @include text(700, 10px, 1, 0, 1);
+  svg {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.user-bar__menu {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  z-index: 5;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2), 0px 3px 4px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.14);
+  background-color: $secondary;
+
+  &-item {
+    &:not(:last-child) {
+      margin: 0 0 20px 0;
+    }
+  }
+
+  &-btn {
+    padding: 0;
+    @include text(400, 16px, 1, 0, 1);
     border: none;
     outline: none;
-    border-radius: 2px;
     background-color: transparent;
     transition: all $transition-prop;
-    color: $accent-blue;
+    color: $gray-2;
+  
     cursor: pointer;
+  
     &:hover {
-      box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2), 0px 3px 4px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.14);
+      transform: scale(1.02);
+      color: $accent-blue;
     }
   }
 }
