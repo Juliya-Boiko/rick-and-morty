@@ -25,6 +25,7 @@ export const App = () => {
           <Route index path="/" element={<PrivateRoute><HomePage /></PrivateRoute>} />
           <Route path="character/:id" element={<PrivateRoute><CharacterPage /></PrivateRoute>} />
           <Route path="auth" element={<PublicRoute restricted><AuthPage /></PublicRoute>} />
+          <Route path="*" element={<PrivateRoute><HomePage /></PrivateRoute>} />
         </Route>
       </Routes>
     </Suspense>

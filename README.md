@@ -9,5 +9,7 @@
 - toast-notitfication on search error;
 - current user & search value saving after refreshing page;
 - loader while request pending;
+- scroll to top;
 - styled by sass;
+- light & colored themes;
 - props checking by PropTypes
