@@ -1,6 +1,6 @@
-import { AiOutlineSearch } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { filter } from "redux/characters/charactersSlice";
+import { AiOutlineSearch } from "react-icons/ai";
 
 export const Filter = () => {
   const dispatch = useDispatch();

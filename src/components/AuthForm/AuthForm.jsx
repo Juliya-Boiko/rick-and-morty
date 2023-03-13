@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { authUser } from "redux/auth/authOperations";
+import { authUser, registerUser, loginUser } from "redux/auth/authOperations";
 import { toast } from 'react-toastify';
 import { Formik, Form, Field } from 'formik';
 import { FcGoogle } from "react-icons/fc"; 
-import { registerUser, loginUser } from "redux/auth/authOperations";
 import { RxEyeClosed, RxEyeOpen } from "react-icons/rx";
 
 export const AuthForm = () => {
