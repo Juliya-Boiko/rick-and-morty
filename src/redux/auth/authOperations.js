@@ -31,7 +31,6 @@ export const registerUser = createAsyncThunk(
     const values = createUserWithEmailAndPassword(authentication, email, password)
       .then((result) => {
         const user = result.user;
-        //console.log('registerUser return-->', user);
         const data = {
           uid: user.uid,
           accessToken: user.accessToken
@@ -53,7 +52,6 @@ export const loginUser = createAsyncThunk(
     const values = signInWithEmailAndPassword(authentication, email, password)
       .then((result) => {
         const user = result.user;
-        //console.log('loginUser return-->', user);
         const data = {
           uid: user.uid,
           accessToken: user.accessToken
